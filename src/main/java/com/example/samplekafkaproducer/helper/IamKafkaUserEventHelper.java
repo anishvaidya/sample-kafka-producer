@@ -37,6 +37,7 @@ public class IamKafkaUserEventHelper {
 
         try {
             List<Header> kafkaHeaders = toHeaders(headers);
+            log.info("Headers: {}", kafkaHeaders);
             String key = event.getCustomerId() != null ? event.getCustomerId().toString() : null;
             var myEvent = new ProducerRecord<String, String>(userEventTopic, null, key, objectMapper.writeValueAsString(event), kafkaHeaders);
             log.info("Publishing event to the IAM Kafka: {}", myEvent);

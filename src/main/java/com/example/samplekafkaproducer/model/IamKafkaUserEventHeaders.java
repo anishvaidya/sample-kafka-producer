@@ -1,5 +1,6 @@
 package com.example.samplekafkaproducer.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -12,7 +13,8 @@ public class IamKafkaUserEventHeaders {
     private String eventTimestamp;
     private String contentType;
     private Long xCustomerId;
-    private Integer xCustomerType;
+    @JsonProperty("xCustomerType")
+    private String xCustomerType;
     private Long xUserId;
     private String xShard;
 }
